@@ -25,6 +25,7 @@
     "@wdio/local-runner": "^7.2.3",
     "@wdio/sync": "^7.2.3",
     "chromedriver": "^89.0.0",
+    "geckodriver": "^1.22.2",
     "gherkin-lint": "^4.2.1",
     "wdio-chromedriver-service": "^7.0.0"
   }
