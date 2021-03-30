@@ -48,14 +48,28 @@ exports.config = {
     capabilities: [
         {
             browserName: 'chrome',
-            port: 5555
+            port: 5555,
+            'goog:chromeOptions': {
+                // to run chrome headless the following flags are required
+                // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+                args: [
+                    ...process.argv.includes('--headless') ? ['--headless', '--no-sandbox', '--disable-gpu'] : []
+                ],
+            }
         }, {
             browserName: 'firefox',
-            port: 5555
-        }, {
-            browserName: 'MicrosoftEdge',
-            port: 5555
-        }
+            port: 5555,
+            'moz:firefoxOptions': {
+                // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+                args: [
+                    ...process.argv.includes('--headless') ? ['-headless'] : []
+                ]
+            },
+        },
+        // {
+        //     browserName: 'MicrosoftEdge',
+        //     port: 5555
+        // }
     ],
     //
     // ===================
@@ -171,7 +185,7 @@ exports.config = {
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
-    
+
     //
     // =====
     // Hooks
@@ -253,7 +267,7 @@ exports.config = {
      */
     // afterFeature: function (uri, feature) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
@@ -291,10 +305,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
 }
