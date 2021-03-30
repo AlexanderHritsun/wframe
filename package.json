@@ -4,7 +4,10 @@
   "description": "Testing framework based on webdriverIO",
   "main": "wdio.conf.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js"
+    "test:chrome": "npx wdio run ./wdio.chrome.conf.js",
+    "test:firefox": "npx wdio run ./wdio.firefox.conf.js",
+    "test:chrome:headless": "npx wdio run ./wdio.chrome.conf.js --headless",
+    "test:firefox:headless": "npx wdio run ./wdio.firefox.conf.js --headless"
   },
   "repository": {
     "type": "git",
