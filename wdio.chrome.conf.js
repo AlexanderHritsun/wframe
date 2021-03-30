@@ -1,4 +1,4 @@
-const {config} = require('./wdio.local.conf')
+const {config} = require('./wdio.base.conf')
 const browserConfig = {
     ...config,
     capabilities: [
