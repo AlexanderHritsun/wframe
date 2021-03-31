@@ -23,60 +23,8 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    //
-    // ============
-    // Capabilities
-    // ============
-    // Define your capabilities here. WebdriverIO can run multiple capabilities at the same
-    // time. Depending on the number of capabilities, WebdriverIO launches several test
-    // sessions. Within your capabilities you can overwrite the spec and exclude options in
-    // order to group specific specs to a specific capability.
-    //
-    // First, you can define how many instances should be started at the same time. Let's
-    // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
-    // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
-    // files and you set maxInstances to 10, all spec files will get tested at the same time
-    // and 30 processes will get spawned. The property handles how many capabilities
-    // from the same test should run tests.
-    //
+
     maxInstances: 10,
-    //
-    // If you have trouble getting all important capabilities together, check out the
-    // Sauce Labs platform configurator - a great tool to configure your capabilities:
-    // https://docs.saucelabs.com/reference/platforms-configurator
-    //
-    capabilities: [
-        {
-            browserName: 'chrome',
-            port: 5555,
-            'goog:chromeOptions': {
-                // to run chrome headless the following flags are required
-                // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-                args: [
-                    ...process.argv.includes('--headless') ? ['--headless', '--no-sandbox', '--disable-gpu'] : []
-                ],
-            }
-        }, {
-            browserName: 'firefox',
-            port: 5555,
-            'moz:firefoxOptions': {
-                // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
-                args: [
-                    ...process.argv.includes('--headless') ? ['-headless'] : []
-                ]
-            },
-        },
-        // {
-        //     browserName: 'MicrosoftEdge',
-        //     port: 5555
-        // }
-    ],
-    //
-    // ===================
-    // Test Configurations
-    // ===================
-    // Define all options that are relevant for the WebdriverIO instance here
-    //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
     //

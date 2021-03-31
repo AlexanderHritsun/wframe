@@ -2,7 +2,7 @@
   "name": "wframe",
   "version": "1.0.0",
   "description": "Testing framework based on webdriverIO",
-  "main": "wdio.conf.js",
+  "main": "wdio.base.conf.js",
   "scripts": {
     "test:chrome": "npx wdio run ./wdio.chrome.conf.js",
     "test:firefox": "npx wdio run ./wdio.firefox.conf.js",
